@@ -1,6 +1,5 @@
 const mongoose = require('mongoose')
 const userSchema = require('./userSchema')
-const addUser = require('./addUser')
 
 module.exports = validateUser = async(User) => {
     var ret;

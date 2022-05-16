@@ -13,8 +13,7 @@ const bot = new Telegraf(BT);
 
 bot.start(async(ctx) => {
     ctx.reply('Welcome to Image Background Remover Bot')
-    ctx.reply('Press /usage to know you usage quota.')
-    ctx.reply('Bugs to be reported at @soberdiscussion')
+    ctx.reply('This bot helps only with one image a day to stop abuse, if you want more then that contact @soberdiscussion')
     await addUser(ctx['update']['message']['from'])
     .then(()=>{
         console.log('User logged successfully')
@@ -28,19 +27,12 @@ bot.start(async(ctx) => {
 bot.command('usage',async(ctx)=>{
     await getCreditInfo(ctx['update']['message']['from']['id'])
     .then(crd=>{
-        ctx.reply(`Currently, You get to process one image for free using the bot everyday.\nAnd you have${crd[0]===1?' not':''} used your today's free credit.\nYou currently have ${crd[1]} bought credits\nTo process more images click /plans`)
+        ctx.reply(`Currently, You get to process one image for free using the bot everyday.\nAnd you have${crd[0]===1?' not':''} used your today's free credit.`)
     })
     .catch(err=>{
         console.log(err)
         ctx.reply('Some error occurred. You can ping @soberdiscussion')
     })
-})
-
-bot.command('plans',(ctx)=>{
-    ctx.replyWithHTML("<i>Payment is added to stop the abuse of the bot.</i>\
-                    \n<u>Plans</u>\n Rs. 10: 2 Credits\n Rs. 20: 10 Credits\n Rs. 50: 50 Credits\
-                    \nFor making payment contact @s1eepingguy\
-                    \n<i>For more info contact @soberdiscussion</i>");
 })
 
 
@@ -52,7 +44,7 @@ bot.on("photo", async (ctx) => {
             ctx.reply("Restart the bot using /start \nand then resend the photo")
         }
         else if(key=="NO CREDITS LEFT"){
-            ctx.reply("No credits Left \ngoto /plans and buy more credits")
+            ctx.reply("No credits Left \nCheck back tomorrow")
         }
         else{
             var _api;
