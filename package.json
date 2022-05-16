@@ -1,0 +1,19 @@
+{
+  "name": "bg_burner_bot",
+  "version": "0.0.0",
+  "description": "This bot user remove.bg API to remove background from the image in Telegram.",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Akash Bansal",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.26.0",
+    "mongoose": "^6.2.2",
+    "nodemon": "^2.0.16",
+    "request": "^2.88.2",
+    "telegraf": "^4.4.1"
+  }
+}
