@@ -4,7 +4,7 @@ const {workingapi} = require('./apiSchema')
 
 module.exports = api = async (forwhat) =>{
     var _api;
-    await mongoose.connect('mongodb+srv://username:whatpassword@cluster0.dytix.mongodb.net/myFirstDatabase?retryWrites=true&w=majority')
+    await mongoose.connect(process.env.mongourl)
     .then(async ()=>{
         console.log('connected')
         await workingapi.find({forwhat:forwhat}).sort({left:-1})

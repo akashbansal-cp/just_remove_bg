@@ -7,7 +7,7 @@ const api = require('./getapi')
 const addUser = require('./addUser');
 const validateUser = require('./validateUser');
 const getCreditInfo=require('./getCreditInfo')
-const BT = `5340202544:AAFZhxMOn_lJlbfvJG-eoGd6vjiHIMODvHQ`; // For original bot
+const BT = process.env.btoken; // For original bot
 const bot = new Telegraf(BT);
 
 

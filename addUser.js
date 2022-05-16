@@ -2,7 +2,7 @@ const mongoose = require('mongoose')
 const userSchema = require('./userSchema')
 
 module.exports = addUser = async(User)=>{
-    await mongoose.connect('mongodb+srv://username:whatpassword@cluster0.dytix.mongodb.net/myFirstDatabase?retryWrites=true&w=majority')
+    await mongoose.connect(process.env.mongourl)
     .then(async()=>{
         await userSchema.find({tgid:User['id']})
         .then(async(data)=>{

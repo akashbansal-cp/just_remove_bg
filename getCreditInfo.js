@@ -4,7 +4,7 @@ const addUser = require('./addUser')
 
 module.exports = getCreditInfo = async(id) => {
     var ret=[0,0];
-    await mongoose.connect('mongodb+srv://username:whatpassword@cluster0.dytix.mongodb.net/myFirstDatabase?retryWrites=true&w=majority')
+    await mongoose.connect(process.env.mongourl)
     .then(async()=>{
         const date = new Date().toLocaleDateString();
         await userSchema.find({tgid:id})
