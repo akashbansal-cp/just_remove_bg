@@ -104,11 +104,11 @@ bot.on("photo", async (ctx) => {
         .catch(err=>{console.log(err)})
     });
 
-bot.launch();
+// bot.launch();
 
-// bot.launch({
-//     webhook: {
-//       domain: APP_URL,
-//       port: PORT,
-//     },
-//   });
+bot.launch({
+    webhook: {
+      domain: APP_URL,
+      port: PORT,
+    },
+  });
